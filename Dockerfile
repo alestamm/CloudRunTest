@@ -1,8 +1,12 @@
-FROM python:3.8-buster
+FROM python:3.8.6-buster
 
-COPY api.py api.py
+COPY api /api
+COPY TaxiFareModel /TaxiFareModel
+COPY requirements.txt /requirements.txt
+COPY model.joblib /model.joblib
+COPY /home/alexandre/code/alestamm/gcp/le-wagon-769-alestamm-24c13323f6c6.json /credentials.json
 
-RUN pip install -U pip
-RUN pip install fastapi uvicorn
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-CMD uvicorn api:app --host 0.0.0.0 --port $PORT
+CMD uvicorn api.fast:app --host 0.0.0.0 --port $PORT
