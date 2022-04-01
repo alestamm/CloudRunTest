@@ -4,7 +4,6 @@ COPY api /api
 COPY TaxiFareModel /TaxiFareModel
 COPY requirements.txt /requirements.txt
 COPY model.joblib /model.joblib
-COPY /home/alexandre/code/alestamm/gcp/le-wagon-769-alestamm-24c13323f6c6.json /credentials.json
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
