@@ -11,13 +11,13 @@ PATH_TO_LOCAL_MODEL = 'model.joblib'
 
 AWS_BUCKET_TEST_PATH = "s3://wagon-public-datasets/taxi-fare-test.csv"
 
-BUCKET_NAME = "wagon-data-769-stamm"  # ⚠️ replace with your BUCKET NAME
+BUCKET_NAME = "wagon-data-769-stamm"
 
 
 def get_test_data(nrows, data="s3"):
     """method to get the test data (or a portion of it) from google cloud bucket
     To predict we can either obtain predictions from train data or from test data"""
-    # Add Client() here
+
     path = "data/test.csv"  # ⚠️ to test from actual KAGGLE test set for submission
 
     if data == "local":
@@ -78,6 +78,6 @@ def generate_submission_csv(nrows, kaggle_upload=False):
 
 if __name__ == '__main__':
 
-    # ⚠️ in order to push a submission to kaggle you need to use the WHOLE dataset
+
     nrows = 100
     generate_submission_csv(nrows, kaggle_upload=False)
