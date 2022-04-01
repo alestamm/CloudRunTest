@@ -19,13 +19,16 @@ app.add_middleware(
 
 @app.get("/")
 def index():
-    return {"greeting": "Hello world"}
+    return {"greeting": "Cloud run test. Try /predict endpoint"}
 
 
 @app.get("/predict")
-def predict(pickup_datetime, pickup_longitude, pickup_latitude,
-            dropoff_longitude, dropoff_latitude, passenger_count
-            ):
+def predict(pickup_datetime="2013-07-06 17:18:00",
+            pickup_longitude="-73.950655",
+            pickup_latitude="40.783282",
+            dropoff_longitude="-73.984365",
+            dropoff_latitude="40.769802",
+            passenger_count="1"):
 
     # create a datetime object from the user provided datetime
     pickup_datetime = datetime.strptime(pickup_datetime, "%Y-%m-%d %H:%M:%S")
